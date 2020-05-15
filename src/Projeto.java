@@ -8,7 +8,7 @@ public class Projeto {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		int compras, atraso, pontuacaocompra;
+		int compras, atraso, pontuacaocompra, pontuacaoinadiplencia, pontuacaoformapag;
 		double ticketmedio, volumecompras;
 		char formapagamento;
 
@@ -45,7 +45,31 @@ public class Projeto {
 		System.out.println();
 		System.out.println("Score de volume de compras = " + pontuacaocompra + " pontos");
 		
+		if (atraso == 0 && compras > 0) {
+			pontuacaoinadiplencia = 30;
+		}
+		else if (atraso >= 1 && compras > 0) {
+			pontuacaoinadiplencia = 15;
+		} 
+		else {
+			pontuacaoinadiplencia = 0;
+		}
 		
+		pontuacaoformapag = 0;
+		
+		if (compras > 0 && formapagamento == 'D' || formapagamento == 'd' ) {
+			pontuacaoformapag = 5;
+		}
+		if (compras > 0 && formapagamento == 'C' || formapagamento == 'c' || formapagamento == 'B' || formapagamento == 'b') {
+			pontuacaoformapag = 10;
+		}
+		
+		System.out.println();
+		System.out.println("Score de inadimplência = " + pontuacaoinadiplencia + " pontos");
+		System.out.print("Score de forma de pagamento = " + pontuacaoformapag);
+		
+		
+			
 		sc.close();
 	}
 
