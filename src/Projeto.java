@@ -8,8 +8,8 @@ public class Projeto {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		int compras, atraso;
-		double ticketmedio;
+		int compras, atraso, pontuacaocompra;
+		double ticketmedio, volumecompras;
 		char formapagamento;
 
 		System.out.println("SISTEMA DE PERFIL DE CLIENTE");
@@ -27,7 +27,23 @@ public class Projeto {
 		System.out.print("A maioria das compras foi em dinheiro, cartão, ou boleto (D/C/B)? ");
 		formapagamento = sc.next().charAt(0);
 		
+		volumecompras = compras * ticketmedio;
 		
+		if (volumecompras > 3000) {
+			pontuacaocompra = 60;
+		} 
+		else if (volumecompras <= 3000 && compras > 2) {
+			pontuacaocompra = 40;
+		}
+		else if (volumecompras <= 3000) {
+			pontuacaocompra = 20;
+		}
+		else {
+			pontuacaocompra = 0;
+		}
+		
+		System.out.println();
+		System.out.println("Score de volume de compras = " + pontuacaocompra + " pontos");
 		
 		
 		sc.close();
