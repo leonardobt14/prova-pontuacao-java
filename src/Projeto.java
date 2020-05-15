@@ -8,7 +8,7 @@ public class Projeto {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		int compras, atraso, pontuacaocompra, pontuacaoinadiplencia, pontuacaoformapag;
+		int compras, atraso, pontuacaocompra, pontuacaoinadiplencia, pontuacaoformapag, pontuacaototal;
 		double ticketmedio, volumecompras;
 		char formapagamento;
 
@@ -66,9 +66,20 @@ public class Projeto {
 		
 		System.out.println();
 		System.out.println("Score de inadimplência = " + pontuacaoinadiplencia + " pontos");
-		System.out.print("Score de forma de pagamento = " + pontuacaoformapag);
+		System.out.println("Score de forma de pagamento = " + pontuacaoformapag);
 		
+		pontuacaototal = pontuacaocompra + pontuacaoinadiplencia + pontuacaoformapag;
 		
+		System.out.println();
+		if (pontuacaototal >= 0 && pontuacaototal <= 25) {
+			System.out.println("Classificação final = CLIENTE BRONZE");
+		} 
+		else if (pontuacaototal > 25 && pontuacaototal <= 75) {
+			System.out.println("Classificação final = CLIENTE PRATA");
+		}
+		else {
+			System.out.println("Classificação final = CLIENTE OURO");
+		}
 			
 		sc.close();
 	}
